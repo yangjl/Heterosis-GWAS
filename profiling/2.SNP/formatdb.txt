@@ -1,0 +1,20 @@
+
+##### make db
+formatdb -t ZmB73v2_chr1 -i chr1.fasta -p F -o T
+formatdb -t ZmB73v2_chr2 -i chr2.fasta -p F -o T
+formatdb -t ZmB73v2_chr3 -i chr3.fasta -p F -o T
+formatdb -t ZmB73v2_chr4 -i chr4.fasta -p F -o T
+formatdb -t ZmB73v2_chr5 -i chr5.fasta -p F -o T
+formatdb -t ZmB73v2_chr6 -i chr6.fasta -p F -o T
+formatdb -t ZmB73v2_chr7 -i chr7.fasta -p F -o T
+formatdb -t ZmB73v2_chr8 -i chr8.fasta -p F -o T
+formatdb -t ZmB73v2_chr9 -i chr9.fasta -p F -o T
+formatdb -t ZmB73v2_chr10 -i chr10.fasta -p F -o T
+
+formatdb -t ZmB73v2_chrUNKNOWN -i chrUNKNOWN.fasta -p F -o T
+formatdb -t ZmB73v2_chrMt -i chrMt.fasta -p F -o T
+formatdb -t ZmB73v2_chrPt -i chrPt.fasta -p F -o T
+
+###### blast
+blastall -p blastn -d ~/Documents/DBcenter/blastdb/chr1.fasta -i test.fas -o test.output -F F -m 8 -v 3 -a 8
+

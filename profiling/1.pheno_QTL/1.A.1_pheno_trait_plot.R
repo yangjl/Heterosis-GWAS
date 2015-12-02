@@ -1,10 +1,10 @@
 ## Jinliang Yang
 ## July 17th, 2014
 ## plot the phenotypic traits
+# updated: 12.2.2015
 
 
 readPheno <- function(infile="akw_v2_GenSel_fullset.txt"){
-  setwd("~/Documents/Heterosis_GWAS/HGWAS_proj/data/")
   pheno <- read.table(infile, header=TRUE)
   names(pheno)[3:5] <- c("trait", "pop", "FID");
   pheno$trait <- names(pheno)[2]
@@ -15,16 +15,16 @@ readPheno <- function(infile="akw_v2_GenSel_fullset.txt"){
 
 
 ######
-krn <- readPheno(infile="krn_v2_GenSel_fullset.txt")
-akw <- readPheno(infile="akw_v2_GenSel_fullset.txt")
-cd <- readPheno(infile="cd_v2_GenSel_fullset.txt")
-cl <- readPheno(infile="cl_v2_GenSel_fullset.txt")
-cw <- readPheno(infile="cw_v2_GenSel_fullset.txt")
-kc <- readPheno(infile="kc_v2_GenSel_fullset.txt")
-tkw <- readPheno(infile="tkw_v2_GenSel_fullset.txt")
+krn <- readPheno(infile="data/krn_v2_GenSel_fullset.txt")
+akw <- readPheno(infile="data/akw_v2_GenSel_fullset.txt")
+cd <- readPheno(infile="data/cd_v2_GenSel_fullset.txt")
+cl <- readPheno(infile="data/cl_v2_GenSel_fullset.txt")
+cw <- readPheno(infile="data/cw_v2_GenSel_fullset.txt")
+kc <- readPheno(infile="data/kc_v2_GenSel_fullset.txt")
+tkw <- readPheno(infile="data/tkw_v2_GenSel_fullset.txt")
 
 trait <- rbind(krn, akw, cd, cl, cw, kc, tkw)
-write.table(trait, "~/Documents/Heterosis_GWAS/HGWAS_proj/reports/S1_pheno.txt",
+write.table(trait, "reports/S1_pheno.txt",
             sep="\t", row.names=FALSE, quote=FALSE)
 
 #######################

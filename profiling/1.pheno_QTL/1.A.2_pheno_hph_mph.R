@@ -4,10 +4,10 @@
 
 
 ###################################
-pheno <- read.table("~/Documents/Heterosis_GWAS/HGWAS_proj/reports/S1_pheno.txt", header=T)
+pheno <- read.table("reports/S1_pheno.txt", header=T)
 getnamp <- function(){
-  namp <- read.csv("~/Documents/pheno2011/P2011_proj/cache/pheno_namparents_BLUE.csv")
-  namid <- read.csv("~/DBcenter/VariationDB/NAM_populations.csv")
+  namp <- read.csv("data/pheno_namparents_BLUE.csv")
+  namid <- read.csv("data/NAM_populations.csv")
   namid$parent <- toupper(namid$parent)
   namp <- merge(namid[, c("parent", "zid")], namp, by.x="parent", by.y="Genotype", all.y=TRUE)
   names(namp)[1] <- "Genotype"
@@ -16,7 +16,7 @@ getnamp <- function(){
 }
 namp <- getnamp()
 
-source("~/Documents/Heterosis_GWAS/HGWAS_proj/lib/getHOS.R")
+source("lib/getHOS.R")
 
 HPH_MPH_of_traits <- function(){
   krn1 <- getHOS(pheno=pheno, namp=namp, mytrait="KRN", mypop="Diallel")
@@ -62,9 +62,9 @@ HPH_MPH_of_traits <- function(){
   message(sprintf("avg pHPH [ %.3f ] and pMPH [ %.3f ]", mean(tkw$pHPH), mean(tkw$pMPH)))
   
   ###
-  source("~/Documents/Rcodes/save.append.R")
+  source("~/Documents/Github/zmSNPtools/Rcodes/save.append.R")
   save.append(list=c("krn", "cd", "akw", "cl", "cw", "kc", "tkw"), 
-              file="~/Documents/Heterosis_GWAS/HGWAS_proj/cache/heterosis_traits.RData",
+              file="cache/heterosis_traits.RData",
               description=c("hph, mph of 7 traits", "cd", "akw", "cl", "cw", "kc", "tkw"))
 }
 

@@ -2,7 +2,7 @@
 # July 18th, 2014
 # purpose: plot of heterosis
 
-ob <- load("~/Documents/Heterosis_GWAS/HGWAS_proj/cache/heterosis_traits.RData")
+ob <- load("cache/heterosis_traits.RData")
 
 ### changed to dialle only
 krn <- subset(krn, pop == "Diallel")
@@ -27,7 +27,10 @@ htable$pMPH <- round(htable$pMPH*100, 1)
 
 htable2 <- rbind(krn, cd, cl, cw, akw, kc, tkw)
 
-pdf("~/Documents/Heterosis_GWAS/HGWAS_proj/graphs/F1_doh.pdf", width=5, height=5)
+
+
+##################################################################################
+pdf("graphs/F1_doh.pdf", width=5, height=5)
 plot(1:7, htable$pMPH, bty="n", xaxt="n", xlab="", ylim=c(0, 500),
      ylab="Degress of Heterosis", pch=22, cex=1, bg="lightgrey")
 points(1:7, htable$pHPH, pch=23, cex=1, bg="lightgrey")
@@ -35,7 +38,7 @@ axis(side=1, at=1:7, labels=htable$trait)
 legend("topleft", legend =c("MPH", "HPH"), pch=c(22,23), bty="n")
 dev.off()
 
-pdf("~/Documents/Heterosis_GWAS/HGWAS_proj/graphs/F1_doh_v2.pdf", width=10, height=5)
+pdf("graphs/F1_doh_v2.pdf", width=10, height=5)
 par(mfrow=c(1,2))
 htb1 <- subset(htable2, pHPH<10)
 bymed2 <- with(htb1, reorder(trait, pHPH, median))

@@ -1,7 +1,7 @@
 ### Jinliang Yang
 
 # copy the following codes to shell
-srun.x11 -p bigmemh --ntasks=8 --nodelist=bigmem4
+srun.x11 -p bigmemh --mem 64000 --ntasks=8 --nodelist=bigmem4
 module load gcc jdk/1.8 tassel/5
 
 # to export - whatever the hdf5 file is - if you want plink -'Plink' or 'Hapmap' for hmp

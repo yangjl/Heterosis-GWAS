@@ -1,12 +1,13 @@
 ### Jinliang Yang
 ### select the trait-associated variants using a thinning procedure
 ### 8/15/2014
+### 1/4/2016
 
-ob1 <- load("~/Documents/Heterosis_GWAS/HGWAS_proj/cache/snptestpval.RData")
-ob2 <- load("~/Documents/Heterosis_GWAS/HGWAS_proj/cache/bayes.RData")
-ob3 <- load("~/Documents/Heterosis_GWAS/HGWAS_proj/cache/swpval.RData")
+ob1 <- load("largedata/lcache/snptestpval.RData")
+ob2 <- load("largedata/lcache/bayes.RData")
+ob3 <- load("largedata/lcache/swpval.RData")
 
-source("~/Documents/Heterosis_GWAS/HGWAS_proj/lib/TAVselect.R")
+source("lib/TAVselect.R")
 
 
 

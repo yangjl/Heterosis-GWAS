@@ -74,8 +74,7 @@ save.append(list=c("lskrn", "lscd", "lscw", "lscl", "lsakw", "lstkw", "lskc"),
             description="use bayes=0.1, snptest=50, sw=10")
 
 ######
-ob <- load(file="~/Documents/Heterosis_GWAS/HGWAS_proj/cache/TAVs_7traits.RData")
-
+ob <- load(file="largedata/lcache/TAVs_7traits.RData")
 head(lscd[[1]])
 
 

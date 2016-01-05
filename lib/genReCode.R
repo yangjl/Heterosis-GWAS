@@ -26,11 +26,19 @@ genReCode <- function(gen=sub, code="GenSel", outfile=""){
     bb <- "BB";
     bn <- "BN";
     nn <- "NN"; 
+  }else if(code=="code0123"){
+      aa <- 0;
+      ab <- 1;
+      an <- 3;
+      bb <- 2;
+      bn <- 3;
+      nn <- 3; 
   }
   
   ### create progress bar
   pb <- txtProgressBar(min = 0, max = nrow(gen), style = 3)
   out <- data.frame()
+  gen$V3 <- as.character(gen$V3)
   for(i in 1:nrow(gen)){
     v <- gen$V3[i]
     for(j in 2:(ncol(gen) %/% 3 - 1) ){
@@ -61,7 +69,11 @@ genReCode <- function(gen=sub, code="GenSel", outfile=""){
     setTxtProgressBar(pb, i)
   }
   close(pb)
-  write.table(out, outfile, sep=",", row.names=FALSE, quote=FALSE, col.names=FALSE)
+  if(is.null(outfile)){
+      return(out)
+  }else{
+      write.table(out, outfile, sep=",", row.names=FALSE, quote=FALSE, col.names=FALSE)
+  }
 }
 
 

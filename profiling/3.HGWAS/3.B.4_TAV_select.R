@@ -9,6 +9,10 @@ ob3 <- load("largedata/lcache/swpval.RData")
 
 source("lib/TAVselect.R")
 
+cutoff1=0.02
+cutoff2=20
+cutoff3=3
+topnum =10
 
 
 lstkw <- TAVselect(snptest=tkw, bayes=tkw2, sw=tkw3, 
@@ -69,8 +73,7 @@ save.append(list=c("lskrn", "lscd", "lscw", "lscl", "lsakw", "lstkw", "lskc"),
             description="")
 
 ######
-ob <- load(file="~/Documents/Heterosis_GWAS/HGWAS_proj/cache/TAVs_7traits.RData")
-
+ob <- load(file="largedata/lcache/TAVs_7traits.RData")
 head(lscd[[1]])
 
 

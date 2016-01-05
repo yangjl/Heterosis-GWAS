@@ -1,0 +1,451 @@
+mycontour(betabinexch, c(-8, -4.5, 3, 16.5), cancermortality, xlab="logit eta", ylab="log K")
+fit = laplace(betabinexch, c(-7,6), cancermortality)
+fit
+normal.par = list(m = fit$mode, v = fit$var)
+mycontour(lbinorm, c(-8, -4.5, 3, 16.5), normal.par, xlab="logit eta", ylab="log(K)")
+mu = c(-6.82, 7.58)#
+Sigma = matrix(c(0.07896, -0.14851, -0.14851, 1.34832), 2, 2)#
+d = rmnorm(1000, mu, Sigma)
+mycontour(betabinexch, c(-8, -4.5, 3, 16.5), cancermortality, xlab="logit eta", ylab="log K")#
+points(d)
+95% credible sets for the parameters using the normal approximation.#
+#
+se = sqrt(diag(fit$var))#
+fit$mode - 1.96*se#
+fit$mode + 1.96*se
+?betabinexch()
+?laplace()
+3**16
+26*25/2
+A = matrix(c(3,4,2,16), by.row=T)
+A = matrix(c(3,4,2,16), byrow=T)
+A
+A = matrix(c(3,4,2,16), rows=2)
+?matrix()
+A = matrix(c(3,4,2,16), nrow=2)
+A
+inverse(A)
+inv(A)
+solve(A)
+t(A)
+g <- read.csv("~/Desktop/GerminationTable.csv")
+dim(g)
+head(g)
+names(g) <- c("Row", "G", "rate")
+g <- read.csv("~/Desktop/GerminationTable.csv")
+names(g) <- c("Row", "G", "rate")
+head(g)
+hist(g$rate)
+hist(g$rate, main="Histogram of Germination Rate (100%)", xlab="GR", breaks=30)
+gr <- read.table("~/Desktop/GerminationTable.csv")
+head(gr)
+gr <- read.csv("~/Desktop/GerminationTable.csv", header=T)
+head(gr)
+names(gr) <- c("row", "g", "rate")
+head(gr)
+gr
+head(gr)
+summary(gr$rate)
+hist(gr$rate)
+hist(gr$rate, main="Histogram of Germination Rate (100%)", xlab="gr")
+hist(gr$rate, main="Histogram of Germination Rate (100%)", xlab="gr", breaks=30)
+gs <- gr[rg$row %in% 7001:7200,]
+gs <- gr[gr$row %in% 7001:7200,]
+dim(gs)
+head(gs)
+tail(gs)
+sum(gs$rate)
+sum(gs$g)
+q()
+25＊24＊23＊22／30＊29＊28＊27
+25*24*23*22/30*29*28*27
+25*24*23*22/(30*29*28*27)
+epcr <- read.table("~/Desktop/p2ePCR.txt", header=T)
+head(epcr)
+epcr$ID2 <- paste("SNP_ID", "R", sep="_")
+head(epcr)
+epcr <- epcr[, c(1:2,5,3:4)]
+head(epcr)
+epcr$ID2 <- paste(epcr$SNP_ID, "R", sep="_")
+head(epcr)
+write.table(epcr, "~/Desktop/p2ePCR.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+epcr$X2nd.PCRP <- gsub("ACGTTGGATG", "", epcr$X2nd.PCRP)
+epcr$X1st.PCRP <- gsub("ACGTTGGATG", "", epcr$X1st.PCRP)
+write.table(epcr, "~/Desktop/p2ePCR.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+dim(epcr)
+write.table(epcr[1:100,], "~/Desktop/p2ePCR1.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[101:200,], "~/Desktop/p2ePCR2.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[201:300,], "~/Desktop/p2ePCR3.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[301:425,], "~/Desktop/p2ePCR4.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[301:375,], "~/Desktop/p2ePCR4.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[376:425,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[301:350,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[351:375,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[301:325,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[326:350,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[301:310,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[311:320,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[311:315,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[316:318,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(epcr[319,], "~/Desktop/p2ePCR5.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+eprc[319,]
+epcr[319,]
+write.table(epcr[c(301:318,320:425),], "~/Desktop/p2ePCR4.txt", sep="\t", row.names=FALSE, col.names=FALSE, quote=FALSE)
+test <- read.csv("~/Desktop/Workbook1.csv")
+head(test)
+table(test$position)
+test <- read.csv("~/Desktop/p7barcode.csv")
+dim(test)
+head(test)
+test <- read.csv("~/Desktop/p7barcode.csv")
+head(test)
+write.table(test, "~/Desktop/p7barcode1.csv", sep=",", row.names=FALSE, quote=FALSE)
+salmon <- read.csv("~/Desktop/salmon.csv")#
+#
+t1 <- subset(salmon, trails==1)#
+#
+par(mfrow=c(2,2))#
+plot(1:9, t1$GMO, ylab="Average Weight (g)", main="",xlab="days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+#
+legend(1, g_range[2], c("cars","trucks"), cex=0.8, #
+   col=c("blue","red"), pch=21:22, lty=1:2);
+legend(10, 150, c("cars","trucks"), cex=0.8, #
+   col=c("blue","red"), pch=21:22, lty=1:2);
+legend("topleft", c("GMO","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21:22, lty=1:2);
+par(mfrow=c(2,2))#
+plot(1:9, t1$GMO, ylab="Average Weight (g)", main="Trail 1",xlab="days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GMO","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);
+t2 <- subset(salmon, trails==2)
+t3 <- subset(salmon, trails==3)
+t1
+t2
+t3
+mean(t1$GMO, t2$GMO, t3$GMO)
+t2 <- subset(salmon, trails==2)#
+t3 <- subset(salmon, trails==3)
+plot(1:9, t2$GMO, ylab="Average Weight (g)", main="Trial 1",xlab="days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GMO","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);
+plot(1:9, t3$GMO, ylab="Average Weight (g)", main="Trial 1",xlab="days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GMO","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);
+salmon <- read.csv("~/Desktop/salmon.csv")#
+#
+t1 <- subset(salmon, trails==1)#
+t2 <- subset(salmon, trails==2)#
+t3 <- subset(salmon, trails==3)#
+t4 <- subset(salmon, trails==4)#
+####
+par(mfrow=c(2,2))#
+plot(1:9, t1$GMO, ylab="Average Weight (g)", main="Trial One",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GMO","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#####
+plot(1:9, t2$GMO, ylab="Average Weight (g)", main="Trial Two",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GMO","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#####
+plot(1:9, t3$GMO, ylab="Average Weight (g)", main="Trial Three",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GMO","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#### Combination of Three trials#
+plot(1:9, t4$GMO, ylab="Average Weight (g)", main="Combination of Three trials",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GMO","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);
+salmon <- read.csv("~/Desktop/salmon.csv")#
+#
+t1 <- subset(salmon, trails==1)#
+t2 <- subset(salmon, trails==2)#
+t3 <- subset(salmon, trails==3)#
+t4 <- subset(salmon, trails==4)#
+####
+par(mfrow=c(2,2))#
+plot(1:9, t1$GMO, ylab="Average Weight (g)", main="Trial One",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GM","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#####
+plot(1:9, t2$GMO, ylab="Average Weight (g)", main="Trial Two",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GM","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#####
+plot(1:9, t3$GMO, ylab="Average Weight (g)", main="Trial Three",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GM","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#### Combination of Three trials#
+plot(1:9, t4$GMO, ylab="Average Weight (g)", main="Combination of Three trials",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GM","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);
+par(mfrow=c(2,2))#
+plot(1:9, t1$GMO, ylab="Average Weight (g)", main="Trial One",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GM","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#####
+plot(1:9, t2$GMO, ylab="Average Weight (g)", main="Trial Two",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GM","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#####
+plot(1:9, t3$GMO, ylab="Average Weight (g)", main="Trial Three",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GM","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);#
+#### Combination of Three trials#
+plot(1:9, t4$GMO, ylab="Average Weight (g)", main="Combination of trial two and three",xlab="Days", type="o",#
+     xaxt="n", col="red", ylim=c(50, 180))#
+lines(1:9, t1$nonGMO, type="o", col="blue")     #
+axis(1, at= c(1,2,3,4,5,6,7,8,9), labels= c(1,15,30, 45,60,75,90, 105, 120),#
+ las=1, cex.axis=1)#
+legend("topleft", c("GM","nonGM"), cex=0.8, #
+   col=c("red","blue"), pch=21, lty=1);
+t4
+13/161
+reads <- read.table("~/Desktop/GS_head")
+reads <- read.delim("~/Desktop/GS_head")
+dim(Reads)
+dim(reads)
+head(reads)
+head(reads,20)
+idx <- rep(2:1000, by=4)
+head(idx)
+length(idx)
+?seq
+idx <- deq(from=2, to=999, by=4)
+idx <- seq(from=2, to=999, by=4)
+reads <- read.delim("~/Desktop/GS_head")
+idx <- seq(from=2, to=999, by=4)
+head(idx)
+reads <- reads[idx,]
+head(reads)
+reads <- read.delim("~/Desktop/GS_head", header=FALSE)
+reads$ID <- 1:1000
+idx <- seq(from=2, to=1000, by=4)
+reads <- reads[idx,]
+head(reads)
+idx2 <- grep("ACGTTGGATG", reads$V1)
+length(idx2)
+dim(reads)
+nad <- reads[-idx2,]
+head(reads)
+reads
+nad
+nad$V1
+for(i in nrow(nad)){#
+	cat(paste(">", nad$ID, sep=" "),#
+		nad$V1[i],#
+		file="~/Desktop/GS_nad.txt", sep="/n", append=TRUE)#
+}
+head(nad)
+nad$V1[1]
+nad$ID
+?cat
+for(i in nrow(nad)){#
+	cat(paste(">", nad$ID[i], sep=" "),#
+		nad$V1[i],#
+		file="~/Desktop/GS_nad.txt", sep="\n", append=TRUE)#
+}
+for(i in 1:nrow(nad)){#
+	cat(paste(">", nad$ID[i], sep=" "),#
+		nad$V1[i],#
+		file="~/Desktop/GS_nad.txt", sep="\n", append=TRUE)#
+}
+nad$V1[1]
+summary(nad$V1)
+nad$V1 <- as.character(nad$V1)#
+for(i in 1:nrow(nad)){#
+	cat(paste(">", nad$ID[i], sep=" "),#
+		nad$V1[i],#
+		file="~/Desktop/GS_nad.txt", sep="\n", append=TRUE)#
+}
+dim(nad)
+head(nad)
+idx3 <- grep("CATCCAACGT", nad$V1)
+length(idx3)
+53/98
+0.0151/(0.0151+.0881)
+1.794/(1.794+0.408)
+install.packages("gdata")
+library(gdata)
+setwd("~/Documents/workingSpace/Heterosis_GWAS/pheno2011/2011rawdata/Cob Data/")
+obs <- ls()
+obs
+ls()
+get.wd()
+getwd()
+obs <- list.files()
+obs
+f1 <- read.xls(obs[1])
+dim(f1)
+head(f1)
+obs <- list.files()
+length(obs)
+out <- data.frame()#
+for(i in 1:25){#
+	temfile <- read.xls(obs[i]);#
+	temfile <- temfile[, 1:7]#
+	out <- rbind(out, temfile);#
+	print(i)#
+}
+i
+head(temfile)
+head(out)
+out <- data.frame()#
+for(i in 1:25){#
+	temfile <- read.xls(obs[i]);#
+	temfile <- data.frame(ped=temfile$Barcode, file=i)#
+	out <- rbind(out, temfile);#
+	print(i)#
+}
+head(out)
+out$ped <- gsub("^11-", "", out$ped)
+out$ped <- gsub("^11-", "", out$ped)
+head(out)
+out$ped <- gsub("-.*$", "", out$ped)
+head(out)
+pvp <- data.frame(range=c(1549:1768, J3201:J3420), type="pvp")
+pvp <- data.frame(range=c(1549:1768, 3201:3420), type="pvp")
+head(pvp)
+dim(pvp)
+pvp <- data.frame(range=c(1549:1768), type="pvp")#
+pvp2 <- data.frame(range=c(3201:3420), type="pvp")
+pvp2$ped <- paste("J", pvp2$ped)
+head(pvp2)
+pvp2$range <- paste("J", pvp2$range)
+head(pvp2)
+pvp <- data.frame(range=c(1549:1768), type="pvp")#
+pvp2 <- data.frame(range=c(3201:3420), type="pvp")#
+pvp2$range <- paste("J", pvp2$range)
+pvp <- rbind(pvp, pvp2)
+head(pvp)
+dim(pvp)
+head(out)
+res <- merge(pvp, out, by.x="range", by.y="ped", all.x=T)
+dim(res)
+head(res)
+res
+pvp <- data.frame(range=c(1549:1768), type="pvp")#
+pvp2 <- data.frame(range=c(3201:3420), type="pvp")#
+pvp2$range <- paste("J", pvp2$range, sep="")#
+#
+pvp <- rbind(pvp, pvp2)#
+#
+res <- merge(pvp, out, by.x="range", by.y="ped", all.x=T)
+res
+nrow(res[is.na(res$file),])
+getwd()
+setwd("/Users/yangjl/Documents/workingSpace/Heterosis_GWAS/pheno2011/2011rawdata")
+cob1 <- read.xls("Cob_master2011")
+obs2 <- list.files()
+obs2
+file6 <- read.xls(obs2[6])
+file6 <- read.csv(obs2[6])
+file8 <- read.csv(obs2[8])
+file9 <- read.csv(obs2[9])
+heaf(file6)
+head(file6)
+head(file8)
+head(file9)
+fs <- rbind(file6[,1:2], file8[,1:2], file9[1:2])
+fs$ped <- gsub("^11-", "", fs$Barcode)
+fs$ped <- gsub("^11-", "", fs$Barcode)
+fs$ped <- gsub("-.*$", "", fs$ped)
+head(fs)
+res2 <- merge(pvp, fs, by.x="range", by.y="ped", all.x=T)
+res2
+head(res2)
+head(fs)
+head(out)
+fs$file <- 2
+fs <- rbind(fs[,3:4], out)
+head(fs)
+fs <- fs[!duplicated(fs$ped),]
+res2 <- merge(pvp, fs, by.x="range", by.y="ped", all.x=T)
+nrow(res2[is.na(res2$file),])
+res2
+obs2 <- list.files()#
+file6 <- read.csv(obs2[6])#
+file8 <- read.csv(obs2[8])#
+file9 <- read.csv(obs2[9])#
+#
+fs <- rbind(file6[,1:2], file8[,1:2], file9[1:2])#
+fs$ped <- gsub("^11-", "", fs$Barcode)#
+fs$ped <- gsub("-.*$", "", fs$ped)#
+fs$file <- 2
+res2 <- merge(pvp, fs, by.x="range", by.y="ped", all.x=T)
+nrow(res2[is.na(res2$file),])
+obs2 <- list.files()#
+file6 <- read.csv(obs2[6])#
+file6$file <- 6#
+file8 <- read.csv(obs2[8])#
+file8$file <- 8#
+#
+file9 <- read.csv(obs2[9])#
+file9$file <- 9
+heaf(file6)
+head(file6)
+fs <- rbind(file6[,c("Barcode", "file")], file8[,c("Barcode", "file")], file9[,c("Barcode", "file")])
+fs$ped <- gsub("^11-", "", fs$Barcode)
+fs$ped <- gsub("-.*$", "", fs$ped)
+res2 <- merge(pvp, fs, by.x="range", by.y="ped", all.x=T)
+res2
+dim(res2)
+table(res2$file)

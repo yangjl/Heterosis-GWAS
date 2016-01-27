@@ -3,15 +3,15 @@
 
 
 
-tav <- read.csv("~/Documents/Heterosis_GWAS/HGWAS_proj/reports/StableN.tav758.csv")
+tav <- read.csv("reports/StableN.tav758.csv")
 
 
 fgs <- read.delim("~/DBcenter/AGPv2/ZmB73_5b_FGS_info.txt", header=TRUE)
 fgs <- subset(fgs, is_canonical == "yes")
 
 classical <- read.delim("~/DBcenter/AGPv2/ZmB73_5a_named_genes.txt", header=TRUE)
-classical <- read.csv("data/classical_maize_genes_v2.csv")
-names(classical)[9] <- "gene_id"
+#classical <- read.csv("data/classical_maize_genes_v2.csv")
+#names(classical)[9] <- "gene_id"
 
 
 count_tav_in_genes <- function(fgs, tav, classical, binsize=10000){

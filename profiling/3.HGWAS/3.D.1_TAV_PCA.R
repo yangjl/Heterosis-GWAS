@@ -6,6 +6,7 @@ tavsnp <- read.csv("largedata/SNP/TAV_recoded.csv")
 mx <- as.matrix(tavsnp[, -1])
 sampleid <- read.table("largedata/SNP/TKW_chr9-covars.sample", header=TRUE)
 
+library(SNPRelate)
 
 snpgdsCreateGeno("largedata/lcache/tavsnp.gds", genmat=mx,
                  sample.id= sampleid$ID_1[-1], snp.id= as.character(tavsnp$V1), 
@@ -13,7 +14,7 @@ snpgdsCreateGeno("largedata/lcache/tavsnp.gds", genmat=mx,
                  snp.position= gsub(".*_", "", tavsnp$V1), snp.allele=NULL, snpfirstdim=TRUE)
 
 library(SNPRelate)
-(genofile <- snpgdsOpen("largedata/lcache/tavsnp.gds"))
+genofile <- snpgdsOpen("largedata/lcache/tavsnp.gds")
 
 pca <- snpgdsPCA(genofile, num.thread=2)
 snpgdsClose(genofile)

@@ -55,5 +55,5 @@ write.table(tav, "~/Documents/Heterosis_GWAS/HGWAS_proj/reports/StableN.tav758.c
             sep=",", row.names=FALSE, quote=FALSE)
 
 
-
+tav <- read.csv("~/Documents/Heterosis_GWAS/HGWAS_proj/reports/StableN.tav758.csv")
 

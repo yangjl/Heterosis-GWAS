@@ -9,7 +9,7 @@ get_AD_eff <- function(files, tav){
         names(h1) <- c("snpid","chr","pos","Effect_A","Effect_D","Effect_A2","Effect_D2","h2_mrk_A", 
                        "h2_mrk_D","H2_mrk","h2_mrk_A_p","h2_mrk_D_p","H2_mrk_p","log10_h2_mrk_A","log10_h2_mrk_D","log10_H2_mrk")
         
-        h1$k <- h1$Effect_D/abs(h1$Effect_A)
+        h1$k <- h1$Effect_D/h1$Effect_A
         h1$snpid <- gsub("S", "", h1$snpid)
         
         myt <- gsub(".*\\/|_.*", "", files[i])
@@ -21,9 +21,10 @@ get_AD_eff <- function(files, tav){
         tem <- subh$k
         out <- data.frame(file=files[i], 
                           k1=length(tem[tem > 1]),
-                          k2=length(tem[tem > 0 & tem <= 1]), 
-                          k3=length(tem[tem >= -1 & tem < 0]), 
-                          k4=length(tem[tem < -1]),
+                          k2=length(tem[tem >= 0.5 & tem <= 1]), 
+                          k3=length(tem[tem > -0.5 & tem < 0.5]),
+                          k4=length(tem[tem >= -1 & tem <= -0.5]), 
+                          k5=length(tem[tem < -1]),
                           h2_A=sum(subh$h2_mrk_A),
                           h2_D=sum(subh$h2_mrk_D),
                           h2_tot=sum(subh$H2_mrk))
@@ -40,6 +41,7 @@ files <- list.files(path="largedata/snpeff", pattern="snpe$", full.names=TRUE)
 tav <- read.csv("~/Documents/Heterosis_GWAS/HGWAS_proj/reports/StableN.tav758.csv")
 res <- get_AD_eff(files, tav)
 
-write.table(tav[[1]], "S.tableN_TAV_add_dom_num.csv", sep=",", row.names=FALSE, quote=FALSE)
-write.table(tav[[2]], "S.tableN_TAV_add_dom_eff.csv", sep=",", row.names=FALSE, quote=FALSE)
+write.table(res[[1]], "cache/TAV_add_dom_num.csv", sep=",", row.names=FALSE, quote=FALSE)
+write.table(res[[2]], "cache/TAV_add_dom_eff.csv", sep=",", row.names=FALSE, quote=FALSE)
+
 

@@ -44,15 +44,14 @@ qctool -g geno_13M_chr10.bgen -og chr10_tavsnp_5764.gen -incl-rsids TAV_snpid_57
 #############################################
 source("lib/genReCode.R")
 
-chr <- data.frame()
+#chr <- data.frame()
 for(i in 1:10){
     gen <- read.table(paste0("largedata/SNP/chr", i, "_tavsnp_5764.gen"), header=FALSE)
     message(sprintf("###>>> recode [ chr %s ]", i))
     out <- genReCode(gen=gen, code="code0123", outfile=NULL)
-    chr <- rbind(chr, out)
+    write.table(out, paste0("largedata/SNP/TAV_recoded_5764_chr", i, ".csv"), sep=",", row.names=FALSE, quote=FALSE)
 }
 
-write.table(chr, "largedata/SNP/TAV_recoded_5764.csv", sep=",", row.names=FALSE, quote=FALSE)
 
 
 

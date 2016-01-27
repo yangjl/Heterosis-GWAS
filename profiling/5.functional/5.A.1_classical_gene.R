@@ -3,7 +3,7 @@
 
 
 
-tav <- read.csv("~/Documents/Heterosis_GWAS/HGWAS_proj/reports/StableN.tav758.csv")
+tav <- read.csv("reports/StableN.tav758.csv")
 
 
 fgs <- read.delim("~/DBcenter/AGPv2/ZmB73_5b_FGS_info.txt", header=TRUE)

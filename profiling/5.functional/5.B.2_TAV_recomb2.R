@@ -2,8 +2,8 @@
 ### Nov 25th, 2014
 ### purpose: cv with recombination rate suggested by reviewer two
 
-setwd("~/Documents/KRN_GWAS_v3/GWAS3_proj/")
-ob <- load("cache/cvsnp_p2g.RData")
+
+ob <- load("cache/cvsnp_p2g_TAV758.RData")
 
 ########################
 # compute recombination rate per 10cM
@@ -31,17 +31,8 @@ cmrate <- nmap[!duplicated(nmap$bin), ]
 #######################
 cvsnp$bin <- paste(cvsnp$chr, round(cvsnp$genetic/10, 0) , sep="_")
 cvsnp <- merge(cvsnp, cmrate, by="bin", all.x=TRUE)
+cvsnp <- cvsnp[!duplicated(cvsnp$marker),]
 
-nrow(subset(cvsnp, type != "Control"))
-
-cvsnp2 <- subset(cvsnp, !is.na(rate) & type != "Control") #103
-cvyes <- subset(cvsnp2, cvd==1)
-nrow(subset(cvyes, rate >= 1)) #13
-nrow(subset(cvyes, rate < 1)) #33
-
-cvno <- subset(cvsnp2, cvd!=1)
-nrow(subset(cvno, rate >= 1)) #33
-nrow(subset(cvno, rate < 1)) #24
 
 ####### chisq
 M <- as.table(rbind(c(13, 33), c(33, 24)))
@@ -54,8 +45,10 @@ p1 <- chisq.test(M, corr=FALSE)
 #ac <- c(2*gc[1] +gc[2], gc[2]+2*gc[3], 2*gc[4]+gc[5], gc[5]+2*gc[6])
 #p1 <- chisq.test(matrix(ac, ncol=2, byrow=T), corr=FALSE)$statistic
 
+eff <- read.csv("cache/TAV_add_dom_eff.csv")
+cvsnp <- merge(cvsnp, eff, by.x="marker", by.y="snpid")
 ######################
-pdf("graphs/cv_recomb.pdf", width=16, height=8)
+pdf("graphs/Test_dominant_recomb.pdf", width=16, height=8)
 par(mfrow=c(2,5))
 for(i in 1:10){
     submap <- subset(nmap, Chr == i)
@@ -63,14 +56,9 @@ for(i in 1:10){
          ylab="genetic", main=paste("Chr", i, sep=""), bty="n")
     
     #### all dots
-    subcv <- subset(cvsnp, chr == i)
-    if(nrow(subcv) > 0){
-        points(x=subcv$physical/1000000, y=subcv$genetic, pch=16, col="blue", cex=1.2)
-    }
-    #### cvd dots
-    subcvd <- subset(subcv, cvd==1)
-    if(nrow(subcvd) > 0){
-        points(x=subcvd$physical/1000000, y=subcvd$genetic, pch=16, col="red", cex=1.2)
+    subsnp <- subset(cvsnp, chr == i & k > 0.5)
+    if(nrow(subsnp) > 0){
+        points(x=subsnp$physical/1000000, y=subsnp$genetic, pch=16, col="blue", cex=1.2)
     }
 }
 dev.off()

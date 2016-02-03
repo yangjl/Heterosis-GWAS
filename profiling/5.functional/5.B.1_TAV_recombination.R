@@ -17,7 +17,7 @@ get_training_map <- function(){
 }
 
 map <- get_training_map()
-
+write.table(map, "data/gam_p2g_traindata.csv", sep=",", row.names=FALSE, quote=FALSE)
 
 ##############################################
 cvd_p2g <- function(map=map){

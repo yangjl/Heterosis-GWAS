@@ -25,11 +25,11 @@ denplot <- function(tcol="KRN", ...){
     par(mar=c(2,2,3,2))
     myp <- subset(trait, trait==tcol)
     myp$norv <- scale(myp$value)
-    plot(density(subset(myp, pop=="NAMRIL")$norv), col="black", lwd=4, bty="n",
+    plot(density(subset(myp, pop=="NAMRIL")$norv), col="black", lwd=2, bty="n",
          main=tcol, xlab="", ...)
-    lines(density(subset(myp, pop=="Diallel")$norv), col="gold", lwd=4)
-    lines(density(subset(myp, pop=="BxRIL")$norv), col="blue", lwd=4)
-    lines(density(subset(myp, pop=="MxRIL")$norv), col="red", lwd=4)
+    lines(density(subset(myp, pop=="Diallel")$norv), col="gold", lwd=2)
+    lines(density(subset(myp, pop=="BxRIL")$norv), col="blue", lwd=2)
+    lines(density(subset(myp, pop=="MxRIL")$norv), col="red", lwd=2)
 }
 
 #######
@@ -38,7 +38,7 @@ denplot <- function(tcol="KRN", ...){
 
 trait <- read.table("reports/S1_pheno.txt", header=TRUE)
 
-pdf("reports/S.F1_pheno.pdf", width=10, height=5)
+pdf("graphs/S.F1_pheno.pdf", width=10, height=4)
 layout(matrix(c(1,1,2,3,4,1,1,5,6,7), 2, 5, byrow = TRUE))
 #par(mar=c(0,0,0,0))
 plotKRN(krnall=subset(trait, trait=="KRN"))

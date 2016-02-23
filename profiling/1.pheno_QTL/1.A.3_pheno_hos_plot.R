@@ -5,18 +5,29 @@
 ob <- load("cache/heterosis_traits.RData")
 
 ### changed to dialle only
-krn <- subset(krn, pop == "Diallel")
-cd <- subset(cd, pop == "Diallel")
-cl <- subset(cl, pop == "Diallel")
-cw <- subset(cw, pop == "Diallel")
-akw <- subset(akw, pop == "Diallel")
-kc <- subset(kc, pop == "Diallel")
-tkw <- subset(tkw, pop == "Diallel")
+dkrn <- subset(krn, pop == "Diallel")
+dcd <- subset(cd, pop == "Diallel")
+dcl <- subset(cl, pop == "Diallel")
+dcw <- subset(cw, pop == "Diallel")
+dakw <- subset(akw, pop == "Diallel")
+dkc <- subset(kc, pop == "Diallel")
+dtkw <- subset(tkw, pop == "Diallel")
 
+
+tot <- rbind(krn, cd, cl, cw, akw, kc, tkw)
+sum(tot$pHPH >0)/nrow(tot)
+
+
+#################
 ph <- c(mean(krn$pHPH), mean(cd$pHPH), mean(akw$pHPH), mean(cl$pHPH), mean(cw$pHPH),
         mean(kc$pHPH), mean(tkw$pHPH))
 pm <- c(mean(krn$pMPH), mean(cd$pMPH), mean(akw$pMPH), mean(cl$pMPH), mean(cw$pMPH),
         mean(kc$pMPH), mean(tkw$pMPH))
+
+ph <- c(median(krn$pHPH), median(cd$pHPH), median(akw$pHPH), median(cl$pHPH), median(cw$pHPH),
+        median(kc$pHPH), median(tkw$pHPH))
+pm <- c(median(krn$pMPH), median(cd$pMPH), median(akw$pMPH), median(cl$pMPH), median(cw$pMPH),
+        median(kc$pMPH), median(tkw$pMPH))
 
 htable <- data.frame(trait=c("KRN", "CD", "AKW", "CL", "CW", "KC", "TKW"),
                      pHPH=ph, pMPH=pm)
@@ -24,6 +35,7 @@ htable <- htable[order(htable$pHPH),]
 ### mean of the everything
 htable$pHPH <- round(htable$pHPH*100, 1)
 htable$pMPH <- round(htable$pMPH*100, 1)
+write.table(htable, "cache/htable_diallel.csv", sep=",", row.names=FALSE, quote=FALSE)
 
 htable2 <- rbind(krn, cd, cl, cw, akw, kc, tkw)
 

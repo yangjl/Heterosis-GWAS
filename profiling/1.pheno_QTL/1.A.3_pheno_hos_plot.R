@@ -38,13 +38,14 @@ axis(side=1, at=1:7, labels=htable$trait)
 legend("topleft", legend =c("MPH", "HPH"), pch=c(22,23), bty="n")
 dev.off()
 
-pdf("graphs/F1_doh_v2.pdf", width=10, height=5)
-par(mfrow=c(1,2))
+pdf("graphs/F1_doh_v3.pdf", width=5, height=5)
 htb1 <- subset(htable2, pHPH<10)
 bymed2 <- with(htb1, reorder(trait, pHPH, median))
 boxplot(pHPH*100 ~ bymed2, data= htb1, notch=TRUE, 
         col="gold",
-        main="High Parental Heterosis", ylab="HPH%", xlab="")
+        main="", ylab="HPH%", xlab="")
+dev.off()
+
 htb2 <- subset(htable2, pMPH<20)
 bymed2 <- with(htb2, reorder(trait, pHPH, median))
 boxplot(pMPH*100~ bymed2, data= htb2, notch=TRUE, 

@@ -24,10 +24,10 @@ ph <- c(mean(krn$pHPH), mean(cd$pHPH), mean(akw$pHPH), mean(cl$pHPH), mean(cw$pH
 pm <- c(mean(krn$pMPH), mean(cd$pMPH), mean(akw$pMPH), mean(cl$pMPH), mean(cw$pMPH),
         mean(kc$pMPH), mean(tkw$pMPH))
 
-ph <- c(median(krn$pHPH), median(cd$pHPH), median(akw$pHPH), median(cl$pHPH), median(cw$pHPH),
-        median(kc$pHPH), median(tkw$pHPH))
-pm <- c(median(krn$pMPH), median(cd$pMPH), median(akw$pMPH), median(cl$pMPH), median(cw$pMPH),
-        median(kc$pMPH), median(tkw$pMPH))
+ph <- c(median(dkrn$pHPH), median(dcd$pHPH), median(dakw$pHPH), median(dcl$pHPH), median(dcw$pHPH),
+        median(dkc$pHPH), median(dtkw$pHPH))
+pm <- c(median(dkrn$pMPH), median(dcd$pMPH), median(dakw$pMPH), median(dcl$pMPH), median(dcw$pMPH),
+        median(dkc$pMPH), median(dtkw$pMPH))
 
 htable <- data.frame(trait=c("KRN", "CD", "AKW", "CL", "CW", "KC", "TKW"),
                      pHPH=ph, pMPH=pm)
@@ -55,7 +55,7 @@ htb1 <- subset(htable2, pHPH<10)
 bymed2 <- with(htb1, reorder(trait, pHPH, median))
 boxplot(pHPH*100 ~ bymed2, data= htb1, notch=TRUE, 
         col="gold",
-        main="", ylab="HPH%", xlab="")
+        main="", ylab="HPH (100%)", xlab="")
 dev.off()
 
 htb2 <- subset(htable2, pMPH<20)

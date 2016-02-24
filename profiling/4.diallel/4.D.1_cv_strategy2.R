@@ -6,7 +6,7 @@
 traits <- c("krn", "cd", "cl", "cw", "akw", "tkw", "kc")
 phenopwd <- "/home/NSF-SAM-GS/HGWAS/SNPdiallel/dcv2/pheno"
 
-splitPheno2(traits, splittimes=10, outputpwd=phenopwd, myf=3)
+splitPheno2(traits, splittimes=20, outputpwd=phenopwd, myf=3)
 
 
 ############################  

@@ -6,11 +6,11 @@
 traits <- c("krn", "cd", "cl", "cw", "akw", "tkw", "kc")
 phenopwd <- "/home/NSF-SAM-GS/HGWAS/SNPdiallel/dcv1/pheno"
 
-splitPheno(traits, splittimes=10, outputpwd=phenopwd)
+splitPheno(traits, splittimes=20, outputpwd=phenopwd)
 
 
 ############################  
-splitPheno <- function(traits, splittimes=10, outputpwd="~"){
+splitPheno <- function(traits, splittimes=20, outputpwd="~"){
   
   mypheno <- paste("/mnt/02/yangjl/Documents/Heterosis_GWAS/HGWAS_proj/data/", "krn",
                    "_v2_GenSel_diallel.txt", sep="")

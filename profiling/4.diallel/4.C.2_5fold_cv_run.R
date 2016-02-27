@@ -3,7 +3,7 @@
 # date: 9/13/2014
 
 setupGenSel_s1 <- function(trait=traits[1], i=1){
-  for(j in 1:1){ ### change j to add more randomization 
+  for(j in 1:20){ ### change j to add more randomization 
         
     mysh <- paste(trait, j, "run41000_training_s1.sh", sep="_")
     

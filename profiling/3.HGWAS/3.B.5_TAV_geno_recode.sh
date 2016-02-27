@@ -53,6 +53,13 @@ for(i in 1:10){
 }
 
 
+out <- data.frame()
+for(i in 1:10){
+    tem <- fread(paste0("largedata/SNP/TAV_recoded_5764_chr", i, ".csv"))
+    message(sprintf("###>>> loaded [ chr %s ]", i))
+    out <- rbind(out, tem)
+}
 
-
+out <- as.data.frame(out)
+write.table(out, "largedata/SNP/TAV_recoded_N5756.csv", sep=",", row.names=FALSE, quote=FALSE)
 

@@ -6,15 +6,15 @@
 synPlot <- function(sqtl=stql, GAP=10000000, trait1="KRN", trait2="AKW",
                     col1="red", col2="blue", ...){
   
-  source("~/Documents/Rcodes/newpos.R")
+  source("~/Documents/Github/zmSNPtools/Rcodes/newpos.R")
   #res <- newpos(res, GAP = GAP)
   chrtick <- chrline_tick(GAP = GAP)
-  namp <- read.csv("~/DBcenter/VariationDB/NAM_populations.csv")
+  namp <- read.csv("~/Documents/Github/zmSNPtools/shareData/NAM_populations.csv")
   namp$parent <- toupper(namp$parent)
   namp$ypos <- 26:1
   
   #### change RIL to MO17
-  sqtl[sqtl$pop == "RIL", ]$pop <- "MO17" 
+  #sqtl[sqtl$pop == "RIL", ]$pop <- "MO17" 
   names(sqtl)[4] <- "pos"
   sqtl <- newpos(sqtl, GAP=GAP)
   sqtl <- merge(sqtl, namp[, c("parent", "ypos")], by.x="pop", by.y="parent", all.x=TRUE)
@@ -48,7 +48,7 @@ synPlot <- function(sqtl=stql, GAP=10000000, trait1="KRN", trait2="AKW",
 }
 
 ###########
-sqtl <- read.csv("~/Documents/Heterosis_GWAS/HGWAS_proj/reports/sep_qtl_table.csv")
+sqtl <- read.csv("reports/sep_qtl_table.csv")
 sqtl <- subset(sqtl, pop != "BxRIL" & pop != "MxRIL")
 
 synPlot(sqtl=sqtl, GAP=10000000, trait1="KRN", trait2="AKW",
@@ -59,11 +59,17 @@ synPlot(sqtl=sqtl, GAP=10000000, trait1="CD", trait2="CL",
         col1="blue3", col2="darkgoldenrod4", main="CD vs. CL")
 
 ##################
-pdf("~/Documents/Heterosis_GWAS/HGWAS_proj/reports/S.F3_synqtl.pdf", height=7, width=14)
+pdf("graphs/SF3_synqtl_krn_akw.pdf", height=7, width=14)
 synPlot(sqtl=sqtl, GAP=10000000, trait1="KRN", trait2="AKW",
         col1="red", col2="blue", main="KRN vs. AKW")
+dev.off()
+
+pdf("graphs/SF4_synqtl_krn_cl.pdf", height=7, width=14)
 synPlot(sqtl=sqtl, GAP=10000000, trait1="KRN", trait2="CL",
         col1="red", col2="darkgoldenrod4", main="KRN vs. CL")
+dev.off()
+
+pdf("graphs/SF5_synqtl_cd_cl.pdf", height=7, width=14)
 synPlot(sqtl=sqtl, GAP=10000000, trait1="CD", trait2="CL",
         col1="blue3", col2="darkgoldenrod4", main="CD vs. CL")
 dev.off()

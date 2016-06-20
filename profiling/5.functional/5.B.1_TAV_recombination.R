@@ -19,6 +19,11 @@ get_training_map <- function(){
 map <- get_training_map()
 write.table(map, "data/gam_p2g_traindata.csv", sep=",", row.names=FALSE, quote=FALSE)
 
+### send to Dan
+map <- read.csv("data/gam_p2g_traindata.csv")
+map <- map[order(map$Chr, map$Genetic),]
+write.table(map, "data/gam_p2g_traindata.csv", sep=",", row.names=FALSE, quote=FALSE)
+
 ##############################################
 cvd_p2g <- function(map=map){
     source("lib/p2g.R")
@@ -36,4 +41,9 @@ cvd_p2g <- function(map=map){
 cvsnp <- cvd_p2g(map=map)
 
 save(file="cache/cvsnp_p2g_TAV758.RData", list=c("map", "cvsnp"))
+
+###
+ob <- load("cache/cvsnp_p2g_TAV758.RData")
+cvsnp <- cvsnp[order(cvsnp$chr, cvsnp$genetic),]
+write.table(cvsnp[, c("marker", "chr", "genetic", "physical")], "data/target_TAVs.csv", sep=",", row.names=FALSE, quote=FALSE)
 

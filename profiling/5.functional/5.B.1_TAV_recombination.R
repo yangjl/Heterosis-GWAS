@@ -47,3 +47,6 @@ ob <- load("cache/cvsnp_p2g_TAV758.RData")
 cvsnp <- cvsnp[order(cvsnp$chr, cvsnp$genetic),]
 write.table(cvsnp[, c("marker", "chr", "genetic", "physical")], "data/target_TAVs.csv", sep=",", row.names=FALSE, quote=FALSE)
 
+tav <- read.csv("data/target_TAVs.csv")
+
+

@@ -3,3 +3,5 @@
 .RData
 largedata/
 slurm-log/
+slurm-script/
+
